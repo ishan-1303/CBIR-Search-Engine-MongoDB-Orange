@@ -1,0 +1,57 @@
+ .error, .valid{
+  display:none;
+}
+
+body {
+  background: #FFFFFF;
+  background-size: cover;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+        font-family: Arial;
+}
+
+
+
+button {
+    cursor: pointer;
+    background: #1E3287;
+    width: 50%;
+    padding: 10px 15px;
+    border: 1;
+    color: #fff;
+
+    font-size: 14px;
+    font-weight: 400;
+  }
+    button:hover {
+      background: #369cb8;
+    }
+    input {
+      align-self: center;
+        outline: none;
+        display: block;
+        width: 50%;
+        margin: 0 0 20px;
+        padding: 10px 15px;
+        border: 2px solid #ccc;
+        color: #ccc;
+
+        box-sizing: border-box;
+        font-size: 14px;
+        font-wieght: 400;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        transition: 0.2s linear;
+      }
+
+        input:focus {
+          color: #333;
+          border: 1px solid #44c4e7;
+        }
+
+h2 {
+  margin: 0 0 20px;
+  line-height: 1;
+}
+ /* style="position:relative; margin-left:220px; margin-top:10px;" */

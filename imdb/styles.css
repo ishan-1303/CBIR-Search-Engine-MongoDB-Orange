@@ -1,0 +1,146 @@
+:root{
+	--blue: #1E3287;
+	--blue2: #0063B2;
+	--blue3: #ADCDFC;
+	--darkGray: #9B9187;
+	--middleGray: #E1DEDB;
+	--lightGray: #EFEFEF;
+	--green1: #259200;
+	--green2: #a7df6f;
+	--green3: #3F7133;
+	--orange: #FF8900;
+	--orange2: #FAC074;
+	--red:  #B7002B;
+	--greyBlue:  #507A85;
+	--lila: #B174BA;
+	--rosa: #FDACED;
+	--rosa-Red: #AF6161 ;
+}
+
+.margin-left-50{
+	margin-left: 50px;
+}
+
+.ui-container{
+	height: 200px;
+  	position: relative;
+  	text-align: center;
+}
+
+.vertical-center{
+	position: absolute;
+	top: 50%;
+	left: 30%;
+	text-align: center;
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+.box {
+    cursor: pointer;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    width: 200px;
+}
+
+.box img {
+    position: absolute;
+    left: 0;
+    -webkit-transition: all 300ms ease-out;
+    -moz-transition: all 300ms ease-out;
+    -o-transition: all 300ms ease-out;
+    -ms-transition: all 300ms ease-out;
+    transition: all 300ms ease-out;
+}
+
+.box .overbox {
+    background-color: #304562;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #fff;
+    z-index: 100;
+    -webkit-transition: all 300ms ease-out;
+    -moz-transition: all 300ms ease-out;
+    -o-transition: all 300ms ease-out;
+    -ms-transition: all 300ms ease-out;
+    transition: all 300ms ease-out;
+    opacity: 0;
+    width: 200px;
+    height: 200px;
+}
+
+.box:hover .overbox {
+    opacity: 1;
+}
+
+.box .overtext {
+    -webkit-transition: all 300ms ease-out;
+    -moz-transition: all 300ms ease-out;
+    -o-transition: all 300ms ease-out;
+    -ms-transition: all 300ms ease-out;
+    transition: all 300ms ease-out;
+    transform: translateY(40px);
+    -webkit-transform: translateY(40px);
+}
+
+.box .title {
+    font-size: 2.5em;
+    text-transform: uppercase;
+    opacity: 0;
+    transition-delay: 0.1s;
+    transition-duration: 0.2s;
+}
+
+.box:hover .title,
+.box:focus .title {
+    opacity: 1;
+    transform: translateY(0px);
+    -webkit-transform: translateY(0px);
+}
+
+.box .tagline {
+    font-size: 0.8em;
+    opacity: 0;
+    transition-delay: 0.2s;
+    transition-duration: 0.2s;
+}
+
+.box:hover .tagline,
+.box:focus .tagline {
+    opacity: 1;
+    transform: translateX(0px);
+    -webkit-transform: translateX(0px);
+}
+
+.outerbox{
+display: inline-block;
+}
+
+.image-upload>input {
+display: none;
+}
+
+.scrollbar{
+	overflow-y: auto;
+	height: 300px;
+
+}
+
+.figure {
+  display: table;
+  margin: 0;
+}
+
+.figure img {
+  max-width: 200px;
+}
+
+.figcaption {
+  display: table-caption;
+  caption-side: bottom;
+  background: var(--lightGray);
+  padding: 10px;
+  font-size: 12px;
+}

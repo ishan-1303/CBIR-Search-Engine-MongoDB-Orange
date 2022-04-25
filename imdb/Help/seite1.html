@@ -1,0 +1,36 @@
+<div class="margin-left-40">
+<h2>How to use</h2>
+<div id="colLeft">
+<h3>Search by Annotations</h3><br />
+<img src="../bilder/searchbar.JPG" width="100%" class="center2">
+
+<p>
+Enter keywords/tags and press search button to get respective images. The annotations were assigned manually to the pictures in the database.
+</p><br>
+<h3>Search by Image</h3>
+<img src="../bilder/searchbyimg.JPG" width="100%" class="center2">
+</div>
+<div class="col-6">
+<p>
+You can upload a image and search for similar images by clicking on search button.<br>
+
+By default, Google inception-v3 algorithm is used for feature extraction and cosine is used for distance computation.<br>
+
+User can play with the advanced search by changing the feature extraction algorithms, distance algorithms and number of clusters.<br><br>
+<h4>Feature algorithm</h4>
+<p>There are three feature extraction algorithms:<br>
+1. <a href="https://cloud.google.com/tpu/docs/inception-v3-advanced">Inception-v3</a><br>
+2. <a href="https://neurohive.io/en/popular-networks/vgg16/">VGG 16</a><br>
+3. <a href="https://orangedatamining.com/widget-catalog/image-analytics/imageembedding/">VGG 19</a><br><br>
+Number of clusters slider can be used to filter results as per accuracy. The more the number of clusters, better the accuracy and fewer results.<br><br>
+</p></p>
+
+<h4>Distance algorithm</h4>
+<p>User can select distance algorithms like Euclidean and cosine distance where
+cosine similarity is advantageous because even if the two similar images are far apart by the Euclidean distance because of the features(Image embedding), colour, Size etc.</p>
+<p><a href="https://orange3.readthedocs.io/projects/orange-data-mining-library/en/latest/reference/distance.html">Click here</a></p>
+<br>
+</div>
+</div>
+
+</div>

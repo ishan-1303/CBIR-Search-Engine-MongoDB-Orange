@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Anwendungen im Databanklabor</title>
+  <!-- CSS file for framework only. Not for content -->
+  <link rel="stylesheet" type="text/css" href="../browser.css">
+  <link rel="stylesheet" type="text/css" href="../styles.css">
+  <link rel="stylesheet" type="text/css" href="../Admin Login/styls.css">
+  <script type="text/javascript" src="../jquery-2.1.1.min.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <script>
+    function submitForm() {
+      var image = document.getElementById('files');
+      if(image.value != "") {
+        document.getElementById("uploadForm").action = "../cgi-bin/admin.py";
+        document.getElementById("uploadForm").submit();
+      } else {
+        document.getElementById('err').innerHTML = "Please select images and annotation file";
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <div id="wapper">
+    <div id="header">
+      <h1 id="headline">Lab Database</h1>
+      <!-- horizontal menu -->
+      <nav id="nav_main">
+        <a href="../SQL-Tool/Interaktives sql/index.html">SQL Tool</a>
+        <a href="../index.html" class="currentPage">Image Database</a>
+
+      </nav>
+      <div id="logoHSO">
+        <a href="http://www.hs-offenburg.de" target="_blank"><img src="../bilder/logoHSO.gif" alt="Hochschule Offenburg"></a>
+      </div>
+      <img src="../bilder/line_top.png" id="line_top">
+    </div>
+    <img id="hand" src="../bilder/hand.png">
+    <!-- vertical menu -->
+    <div id="nav_left">
+      <div id="menuItem">
+        <a href="../index.html">Image Search</a><br>
+        <a href="../Help/index.html">Help</a><br>
+        <a href="../Developers/index.html">Developers</a><br>
+        <a href="../Admin Login/index.html" class="currentPage">Admin Login</a>
+      </div>
+      <!-- menuItem -->
+
+    </div>
+    <!-- nav_left -->
+    <div id="content">
+      <div class="margin-left-50" style="text-align: center;"><br>
+          <h2>Content Based Image Retrieval</h2><br>
+        <form enctype="multipart/form-data" style="" method="post" id="uploadForm">
+          <label for="files"><h3>Username and Password</h3></label><br>
+          <center>
+            <input placeholder="Username" type="text" id="username" name="username" style="padding-right:50px;"></input>
+            <input placeholder="Password" type="password" id="password" name="password" style=""></input>
+          </center>
+          <label for="files"><h3>Select Images to upload:</h3></label><br>
+          <center>
+            <input type="file" id="files" name="files" multiple>
+          </center>
+          <label for="r1"></label><input id="r1" type="radio" name="database" value="imagedb" checked style="display: none;">
+          <!-- <h3>Choose Database </h3>
+          <div style="display:inline-block;">
+            <label for="r1">domestic</label><input id="r1" type="radio" name="database" value="domestic" checked>
+          </div>
+          <div style="display:inline-block;">
+            <label for="r2">misc</label><input id ="r2" type="radio" name="database" value="misc">
+          </div> <br> -->
+          <button id="submit" onclick="submitForm()">Upload</button>
+          <p>Upload images with annotation file with same name as image (eg. image.png, image.txt). <strong>Only image upload will not work</strong></p>
+          <p id="err" style="color: red"></p>
+        </form>
+      </div>
+    </div>
+
+    <footer>
+      <img src="../bilder/line_bottom.png" id="line_bottom"><br>
+      <img src="bilder/license.png" id="license" >
+      <p id="nameProf">Prof. Dr. Volker Sänger, <a id="mail" href="mailto:volker.saenger@hs-offenburg.de">volker.saenger@hs-offenburg.de</a>
+      </p>
+    </footer>
+  </div>
+</body>
+<!-- Piwik -->
+<!-- End Piwik Code -->
+
+<!-- Piwik Image Tracker-->
+<img src="https://webanalyse.hs-offenburg.de/piwik.php?idsite=11&rec=1" style="border:0" alt="" />
+<!-- End Piwik -->
+
+</html>

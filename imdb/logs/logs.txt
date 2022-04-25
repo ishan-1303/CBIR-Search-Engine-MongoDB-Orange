@@ -1,0 +1,29 @@
+2021-11-15 14:48:43 | $and/$or/$nor must be a nonempty array, full error: {'ok': 0.0, 'errmsg': '$and/$or/$nor must be a nonempty array', 'code': 2, 'codeName': 'BadValue'}
+2021-11-15 14:52:04 | $and/$or/$nor must be a nonempty array, full error: {'ok': 0.0, 'errmsg': '$and/$or/$nor must be a nonempty array', 'code': 2, 'codeName': 'BadValue'}
+2021-11-15 14:53:19 | $and/$or/$nor must be a nonempty array, full error: {'ok': 0.0, 'errmsg': '$and/$or/$nor must be a nonempty array', 'code': 2, 'codeName': 'BadValue'}
+2021-12-09 18:49:59 | name 'data_handler' is not defined
+2021-12-09 18:50:21 | string indices must be integers
+2021-12-09 18:52:31 | string indices must be integers
+2021-12-09 18:53:05 | string indices must be integers
+2021-12-09 18:53:34 | 'image'
+2021-12-09 19:09:33 | 'Result' object has no attribute '_Result__cbir_algorithm'
+2021-12-09 19:10:11 | 'DataHandler' object has no attribute '_DataHandler__cbir_algorithm'
+2021-12-09 19:15:48 | 'set' object is not subscriptable
+2021-12-09 20:05:17 | name 'similarity_a' is not defined
+2021-12-09 20:16:50 | 'int' object is not callable
+2021-12-09 20:18:35 | name 'similarity' is not defined
+2021-12-09 20:34:41 | 'similarity_a'
+2021-12-14 14:59:52 | generate_output_orange() takes 4 positional arguments but 6 were given
+2021-12-14 15:03:34 | name 'myDesc' is not defined
+2021-12-14 15:04:58 | name 'myDesc' is not defined
+2021-12-14 15:06:09 | 'filename'
+2021-12-16 10:37:06 | 'int' object is not iterable
+2021-12-16 11:24:48 | name 'myDesc' is not defined
+2021-12-16 17:51:49 | File "../../misc.csv" was not found.
+2021-12-16 18:02:38 | 'annotations'
+2021-12-16 18:12:27 | find_similar_images_orange() takes 4 positional arguments but 5 were given
+2021-12-16 18:13:10 | 'similarity'
+2021-12-16 18:38:34 | find_similar_images_orange() takes 4 positional arguments but 5 were given
+2022-01-11 16:59:43 | File "../../imagedb.csv" was not found.
+2022-01-11 17:13:45 | text index required for $text query, full error: {'ok': 0.0, 'errmsg': 'text index required for $text query', 'code': 27, 'codeName': 'IndexNotFound'}
+2022-04-25 13:26:03 | File "../../imagedb.csv" was not found.

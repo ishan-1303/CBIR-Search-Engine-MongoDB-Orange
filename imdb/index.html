@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>MI-Learning</title>
+    <!-- CSS file for framework only. Not for content -->
+    <link rel="stylesheet" type="text/css" href="browser.css">
+    <link rel="stylesheet" type="text/css" href="figures.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script type="text/javascript" src="jquery-2.1.1.min.js"></script>
+</head>
+<script type="text/javascript">
+    function submitForm() {
+
+      var search = document.getElementById('textAreaSqlInput');
+      var image = document.getElementById('imageBox');
+      var imgName= image.value;
+      
+      localStorage.setItem('imgName',imgName)
+        if (search.value != "") {
+            document.getElementById("searchForm").action = "cgi-bin/tbir.py";
+            document.getElementById("searchForm").submit();
+            myFunction1();
+        } else if (image.value != "") {
+          document.getElementById("searchForm").action = "cgi-bin/result.py";
+          document.getElementById("searchForm").submit();
+          myFunction();         
+        }
+        else {
+        document.getElementById('err').innerHTML = "Please type keyword or select an image file";
+        } 
+      }
+
+
+    $(function () {
+        $(":file").change(function () {
+            if (this.files && this.files[0]) {
+                var reader = new FileReader();
+                reader.onload = imageIsLoaded;
+                reader.readAsDataURL(this.files[0]);
+            }
+        });
+    });
+
+    function imageIsLoaded(e) {
+        $('#myImg').attr('src', e.target.result);
+        
+        $('#animated-gif').attr('src', e.target.result);
+        document.getElementById("myImg").style.display="block";
+        document.getElementById("myImg").style="border: 1px solid #ddd; ";
+        var a = document.getElementById("myImg").src;
+        localStorage.setItem('ImgPath',a);
+    };
+</script>
+<body>
+<div id="wapper">
+    <div>
+        <h1 id="headline">Lab Database</h1>
+        <!-- horizontal menu -->
+        <nav id="nav_main">
+            <a href="/SQLTool/">SQL Tool</a>
+            <a href="index.html" class="currentPage">Image Database</a>
+        </nav>
+        <div id="logoHSO">
+            <a href="http://www.hs-offenburg.de" target="_blank"><img src="bilder/logoHSO.gif"
+                                                                      alt="Hochschule Offenburg"></a>
+        </div>
+        <img src="bilder/line_top.png" id="line_top">
+    </div>
+    <img id="hand" src="bilder/hand.png">
+    <!-- vertical menu -->
+    <div id="nav_left">
+        <div id="menuItem">
+            <a href="index.html" class="currentPage">Image Search</a><br>
+            <a href="Help/index.html">Help</a><br>
+            <a href="Developers/index.html">Developers</a><br>
+            <a href="Admin Login/index.html">Admin Login</a>
+        </div>
+        <!-- menuItem -->
+    </div>
+    <!-- nav_left -->
+    <div id="content">
+        <div class="margin-left-50" >
+            <h2>Content Based Image Retrieval</h2>       
+            <div style="margin-top: 15%;">
+                <center>
+                    <h3>Image Search</h3><br>
+                    <form enctype="multipart/form-data" id="searchForm" method="post" >
+                        <input name="search_term" class="" id="textAreaSqlInput" rows="4" placeholder="Image Search" style="width: 40%; height: 25px;">
+                        <br><br>                        
+                        <input type="file" name="file" accept="image/*" id="imageBox" style="position: relative; width: 25%; top: -10px "> 
+                        <img src="bilder/Search.png" title="Search Similar Images" class="pointer" onclick="submitForm()" style="position: relative; top: -5px ">
+                        <br>
+                        <img id="myImg" src="#" width="50px" height="50px" style="visibility: hidden;" />
+                        <div style="border: solid 2px var(--blue); width: 45%; background-color: var(--lightGray);">
+                            <input type="radio" name="database" value="imagedb" style="display:none" checked>
+                            <!-- <h5>
+                                <labelfor="distance_algo">Database : </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="database" value="misc" onclick="checkDB(this)">Misc
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="database" value="domestic" onclick="checkDB(this)" checked>Domestic Animals
+                                </label>
+                            </h5> -->
+                            <h5>
+                                <label for="algorithm">CBIR algorithm : </label>
+                                <select name="algorithm" id="features_algo">
+                                    <option value="inception-v3">Inception-V3</option>
+                                    <option value="vgg16">Vgg-16 (Performance issues) </option>
+                                    <option value="vgg19">Vgg-19 (Performance issues)</option>
+                                </select>
+                            </h5>
+                            <h5 id="container_distance">
+                                <label>Distance algorithm : </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="distance_algorithm" value="Euclidean" >Euclidean
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="distance_algorithm" value="Cosine" checked>Cosine
+                                </label>
+                            </h5>
+                            <!-- <h5 id="container_clusters">Drag the slider to set similarity percentage.
+                                <div class="slidecontainer">
+                                    <input name="number_of_clusters" type="range" min="50" max="95" value="50" class="slider" id="range_cluster">
+                                    <br>Number of Clusters: <span id="output_clusters"></span>
+                                </div>
+                            </h5> -->
+                            <!-- <h5 id="container_confidence" style="display: none;">Drag the slider to set object detection confidence.
+                                <div class="slidecontainer">
+                                    <input name="similarity_confidence" type="range" min="25" max="100" value="25" class="slider" id="range_confidence">
+                                    <br>Similarity Confidence: <span id="output_confidence"></span>
+                                </div>
+                            </h5> -->
+                        </div>
+                        <h4 id="err" style="color: red;"></h4>
+                    </form>
+                    <div>
+                        <img src="#" width="250px" height="200px" style="display: none;" id="animated-gif"/>
+                        <img src="bilder/831.gif" width="450px" height="300px" style="display: none;" id="annotation-gif"/>
+                        <br>
+                        <h3 id="demo1"></h3>
+                    </div>
+                </center>
+            </div>  
+        </div>
+    </div>
+    <footer>
+    <img src="bilder/line_bottom.png" id="line_bottom"><br>
+    <img src="bilder/license.png" id="license" >
+        <p id="nameProf">
+            Prof. Dr. Volker Sänger, <a id="mail" href="mailto:volker.saenger@hs-offenburg.de">volker.saenger@hs-offenburg.de</a>
+        </p>
+    </footer>
+</div>
+</body>
+
+<script>
+    // var sliderClusters = document.getElementById("range_cluster");
+    // var outputClusters = document.getElementById("output_clusters");
+    // outputClusters.innerHTML = sliderClusters.value;
+    // sliderClusters.oninput = function() {
+    //     outputClusters.innerHTML = this.value;
+    // }
+
+    // var sliderConfidence = document.getElementById("range_confidence");
+    // var outputConfidence = document.getElementById("output_confidence");
+    // outputConfidence.innerHTML = sliderConfidence.value;
+    // sliderConfidence.oninput = function() {
+    //     outputConfidence.innerHTML = this.value;
+    // }
+
+    // function checkAlgorithm(algo) {
+    //     algorithm = algo.value;
+    //     var container_confidence =  document.getElementById("container_confidence");
+    //     var container_clusters =  document.getElementById("container_clusters");
+    //     var container_distance = document.getElementById("container_distance");
+    //     if (algorithm == "YOLO") {
+    //         container_clusters.style.display = "none";
+    //         container_distance.style.display = "none";
+    //         container_confidence.style.display = "block";
+    //     } else {
+    //         container_clusters.style.display = "block";
+    //         container_distance.style.display = "block";
+    //         container_confidence.style.display = "none";
+    //     }
+    // }
+
+    // function checkDB(ele){
+    //     // if(ele.value == "domestic") {
+    //     //     document.getElementById('range_cluster').max = 10;
+    //     //     document.getElementById('range_cluster').value= 5;
+    //     // } else {
+    //     //     document.getElementById('range_cluster').max = 350;
+    //     //     document.getElementById('range_cluster').value= 300;
+    //     // }
+    //     outputClusters.innerHTML = sliderClusters.value;
+    // }
+    // For loading Screen 
+    function myFunction() {
+        var y = document.getElementById("searchForm");
+        y.style.display = "none";
+
+        document.getElementById("animated-gif").style.display = "block";
+        var i = 0;
+        var txt = 'Searching for Similar Images ......';
+        var speed = 200;
+        typeWriter();
+        function typeWriter() {
+            if (i < txt.length) {
+                document.getElementById("demo1").innerHTML += txt.charAt(i);
+                i++;
+                setTimeout(typeWriter, speed);
+            } else {
+                i=0;
+                document.getElementById("demo1").innerHTML = "";
+
+                typeWriter();
+            }
+        }
+    }
+
+    function myFunction1() {
+        var y = document.getElementById("searchForm");
+        y.style.display = "none";
+        document.getElementById("annotation-gif").style.display = "block";
+    }
+</script>
+</html>

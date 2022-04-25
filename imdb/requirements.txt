@@ -1,0 +1,6 @@
+numpy==1.20.3
+opencv_python==4.5.2.54
+Orange==2.7.8
+Orange3_ImageAnalytics==0.6.0
+Pillow==9.0.0
+pymongo==3.12.0
